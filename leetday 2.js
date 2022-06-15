@@ -30,3 +30,4 @@ const power = function(base, exponent) {
   }; 
   
 //problem 5
+// solve 5 questions tomorrow
