@@ -1,21 +1,23 @@
-var truncateSentence = function(s, k) {
-    let str = ""
-    var word = s.split(" ")
-    for(let i=0; i<k-1; i++){
-        str += word[i] + " "
-    }
-    str += word[k-1];
-    return str;
-};
 
-//problem-2
-/**
- * @param {number[]} nums
- * @return {number[]}
- */
- var smallerNumbersThanCurrent = function(nums) {
-    const sorted = [...nums].sort((a, b) => a - b);
-    return nums.map((value) => sorted.indexOf(value));
-    };
- 
  //problem-3   
+ class MatrixIterator {
+    constructor(matrix) {
+      this.x = 0;
+      this.y = 0;
+      this.matrix = matrix;
+    }
+  
+    next() {
+      if (this.y == this.matrix.height) return {done: true};
+  
+      let value = {x: this.x,
+                   y: this.y,
+                   value: this.matrix.get(this.x, this.y)};
+      this.x++;
+      if (this.x == this.matrix.width) {
+        this.x = 0;
+        this.y++;
+      }
+      return {value, done: false};
+    }
+  }
